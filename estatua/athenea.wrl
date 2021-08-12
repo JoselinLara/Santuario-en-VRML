@@ -1,0 +1,183 @@
+#VRML V2.0 utf8
+SpotLight{
+on TRUE
+	ambientIntensity 0.5
+	color 1 1 1
+	intensity 1
+	 location 20.0 30.0 20.0
+	direction -1 0 0
+	attenuation 1.0 0.0 0.0
+	radius 500.0
+	beamWidth 1.57
+	cutOffAngle 0.78
+}
+Collision{
+	collide TRUE
+	children [
+		Transform{
+			translation 0 4 -15	
+				children Shape{# el piso
+					geometry Box{ 
+						size 100 10 100
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["marmol.jpg"]
+						}textureTransform TextureTransform {
+									scale 2 2 }
+					}
+					
+				}
+		}
+	]
+}
+PROTO lvl[
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+	collide TRUE
+	children [
+		Transform{
+			translation IS Direccion
+				children Shape{# el piso
+					geometry Box{ 
+						size 50 1.5 50
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["marmol.jpg"]
+						}
+					}
+					
+				}
+		}
+	]
+}
+}
+lvl{Direccion 0 10 -15	}
+Transform{
+scale 0.8 1 0.8
+	children[
+		lvl{Direccion 0 11 -18	}
+	]
+}
+Transform{
+scale 0.5 1 0.5
+	children[
+		lvl{Direccion 0 12 -30	}
+	]
+}
+
+PROTO pilar [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide TRUE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Cylinder{ 
+							height 30
+							radius 2
+						}
+						appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["col.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+
+PROTO escalon [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Box{ 
+							size 26 1.5 20
+						}
+						appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["escalon1.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+Transform {
+translation 0 36 -20
+	children[
+		Shape{
+				geometry Box{
+					size 27 56 0.1
+				}
+				appearance Appearance{
+				material Material{
+							ambientIntensity 0.9
+						}
+					texture ImageTexture{
+						url"athenea.png"
+					}
+				}
+			}
+			
+	
+	]
+}
+
+Transform{
+translation 0 5 30
+	children[
+		escalon {Direccion 0 2 -2 }
+		escalon {Direccion 0 1 0 }
+		escalon {Direccion 0 0 2 }#5
+		escalon {Direccion 0 -1 4 }#4
+		escalon {Direccion 0 -2 6 }# 
+		escalon {Direccion 0 -3.5 8 }#		
+		escalon {Direccion 0 -4.5 10 }#
+		escalon {Direccion 0 -5.5 12 }#
+		escalon {Direccion 0 -6.5 15 }#
+		escalon {Direccion 0 -7.5 18 }#
+		escalon {Direccion 0 -8.5 20 }#
+		escalon {Direccion 0 -9.5 22 }#
+	]
+}
+pilar{Direccion -45 23 30}
+pilar{Direccion -45 23 -55}
+pilar{Direccion -25 23 -55}
+pilar{Direccion 25 23 -55}
+pilar{Direccion -45 23 -25}
+pilar{Direccion -45 23 5}
+pilar{Direccion 45 23 -55}
+pilar{Direccion 45 23 30}
+pilar{Direccion 45 23 -25}
+pilar{Direccion 45 23 5}

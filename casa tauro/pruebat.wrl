@@ -1,0 +1,50 @@
+#VRML V2.0 utf8
+# The VRML 2.0 Sourcebook
+# Copyright (c) 1997
+# Andrea L. Ames, David R. Nadeau, and John L. Moreland
+    
+ Shape{# el techo CENTRO
+	appearance Appearance {
+        texture ImageTexture {
+            url "1.jpg"
+        }
+    }
+		geometry 
+		IndexedFaceSet{
+			coord Coordinate{
+				point[
+					 0 0 0,#0
+					 50 0 0,#1
+					 0 10 0,#2
+					 12.5 10 0,#3
+					 25 15 0,#4
+					 37.5 10 0,#5
+					 50 10 0#6
+				     37.5 10 -80,#7
+					 12.5 10 -80,#8
+					 25 15 -80,#9
+					 50 10 -80#10
+					 0 10 -80#11
+					 0 0 -80#12
+					 50 0 -80#13
+				]
+		}
+		solid FALSE
+		coordIndex[
+			#4,3,2,0,1,6,5,4,-1,
+			2,0,1,6,2,-1,
+			4,3,5,4,-1,
+			8,3,4,9,8,-1,
+			9,4,5,7,9,-1,
+			11,2,3,8,11,-1,
+			7,5,6,10,-1,
+			9,8,7,9,-1,
+			11,12,13,10,11,-1,
+			11,2,0,12,11,-1,
+			10,6,1,13,10,-1,
+			12,0,1,13,12,-1
+		]
+
+		texCoordIndex [  ]
+    }
+}

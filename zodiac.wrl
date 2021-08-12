@@ -1,0 +1,31 @@
+#VRML V2.0 utf8
+ Collision{
+	collide FALSE
+	children [
+		DEF tr Transform{	
+			scale 1000 1000 1
+				children Shape{# el piso
+					geometry Box{ 
+						size 3000 1550 1
+					}
+					appearance Appearance {
+						texture ImageTexture {
+							url ["1.png"]
+						}
+					}
+					
+				}
+		}DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 0 1 0, 0 0 1 1.5708, 0 0 1 3.14159,
+					   0 0 1 -1.5708,0 0 1 -3.14159, 0 0 1 0]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 25
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 

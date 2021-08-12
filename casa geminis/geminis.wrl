@@ -1,0 +1,338 @@
+#VRML V2.0 utf8
+SpotLight{
+on TRUE
+	ambientIntensity 0.5
+	color 1 1 1
+	intensity 1
+	 location 20.0 30.0 20.0
+	direction -1 0 0
+	attenuation 1.0 0.0 0.0
+	radius 500.0
+	beamWidth 1.57
+	cutOffAngle 0.78
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 0.4 -35
+				children Shape{# el piso
+					geometry Box{ 
+						size 110 10 85
+					}
+					appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["marmol.jpg"]
+							}
+						}
+					
+				}
+		}
+	]	
+}
+PROTO techolado [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Transform{
+		translation IS Direccion
+			children Shape{# el techo
+				geometry Box{ 
+					size 40 8 70
+				}
+				appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+					texture ImageTexture {
+						url ["techo.jpg"]
+					}
+				}
+						
+			}
+		}
+}
+PROTO cuarto [
+	field SFVec3f Direccion 0 0 0
+]
+{
+Collision{
+		collide FALSE
+		children [
+			Transform{#cuarto
+				translation IS Direccion
+				children Shape{
+					geometry Box{ 
+						size 29 30 60
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["cuarto.jpg"]
+							}
+					}				
+				}
+			}
+		]
+	}
+}
+PROTO imageng[
+	field SFVec3f Direccion 0 0 0
+]
+{
+Collision{
+		collide FALSE
+		children [
+			Transform{#cuarto
+				translation IS Direccion
+				children Shape{
+					geometry Box{ 
+						size 30 29 0.2
+					}
+					appearance Appearance {
+							texture ImageTexture {
+								url ["gemini.jpg"]
+							}textureTransform TextureTransform {
+									scale 1.2 1 }
+					}				
+				}
+			}
+		]
+	}
+}
+PROTO imageng2[
+	field SFVec3f Direccion 0 0 0
+]
+{
+Collision{
+		collide FALSE
+		children [
+			Transform{#cuarto
+				translation IS Direccion
+				children Shape{
+					geometry Box{ 
+						size 30 29 0.2
+					}
+					appearance Appearance {
+							texture ImageTexture {
+								url ["gemini2.jpg"]
+							}textureTransform TextureTransform {
+									scale 1.2 1 }
+					}				
+				}
+			}
+		]
+	}
+}
+PROTO pilar [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Cylinder{ 
+							height 25
+							radius 1.7
+						}
+						appearance Appearance {
+							material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["columna.jpg"]
+							}textureTransform TextureTransform {scale 0.5 1 }
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+Transform{
+	translation 0 17 -58
+	children Shape{
+		geometry Box{ 
+			size 39 30 30
+		}
+		appearance Appearance {
+			material Material {diffuseColor 0 0 0}
+		}				
+	}
+}
+Transform{
+		translation 0 33 -58
+			children Shape{# el techo
+				geometry Box{ 
+					size 30.4 8 34
+				}
+				appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+					texture ImageTexture {
+						url ["marmol.jpg"]
+					}
+				}
+						
+			}
+		}
+PROTO escalon [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Box{ 
+							size 30 1.5 20
+						}
+						appearance Appearance {
+							material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["escalon1.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 -6.2 33
+				children Shape{# el piso
+					geometry Box{ 
+						size 30 5 30
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["marmol.jpg"]
+							}
+						}
+					
+				}
+		}
+	]	
+}
+Transform {
+translation 0 11 -40
+scale 2.1 2.1 2.1
+	children[
+		Billboard{
+			axisOfRotation 0 0 0
+			children Shape{
+				geometry IndexedFaceSet{
+					coord Coordinate{
+						point [ 2 3 0, -2 3 0, -2 -3 0,2 -3 0]
+					}
+					coordIndex[ 0 1 2 3]
+					solid FALSE
+					texCoord TextureCoordinate{
+						point[1 1,0 1,0 0,1 0]
+					}
+				}
+				appearance Appearance{
+					texture ImageTexture{
+						url"g.jpg"
+					}
+				}
+			}
+			
+		}
+	]
+}
+
+escalon {Direccion 0 3 2 }#1
+escalon {Direccion 0 1.5 4 }#2
+escalon {Direccion 0 0 6 }#3 escalon
+escalon {Direccion 0 -1.5 8 }#4 escalon
+escalon {Direccion 0 -3 10 }#5 escalon
+Transform{
+	translation 5 -7 32.5
+	rotation 0 1 0 1.5708
+	children[
+		escalon {Direccion 0 1.5 4 }#2
+		escalon {Direccion 0 0 6 }#3 escalon
+		escalon {Direccion 0 -1.5 8 }#4 escalon
+		escalon {Direccion 0 -3 10 }#5 escalon
+	]
+}
+imageng2{Direccion 35 17 -10}
+imageng2{Direccion 35 17 -70}
+imageng{Direccion -35 17 -10}
+imageng{Direccion -35 17 -70}
+techolado{Direccion -35 33 -40}
+techolado{Direccion 35 33 -40}
+cuarto{Direccion -35 17 -40}
+cuarto{Direccion 35 17 -40}
+
+pilar{Direccion -50 18 -10}
+pilar{Direccion -20 18 -10}
+pilar{Direccion 50 18 -9}
+pilar{Direccion 20 18 -9}
+
+pilar{Direccion -10 18 -43}
+pilar{Direccion 10 18 -43}
+
+pilar{Direccion -50 18 -72}
+pilar{Direccion -20 18 -70}
+pilar{Direccion 50 18 -70}
+pilar{Direccion 20 18 -70}
+
+pilar{Direccion -50 18 -16}
+pilar{Direccion -50 18 -22}
+pilar{Direccion -50 18 -29}
+pilar{Direccion -50 18 -36}
+pilar{Direccion -50 18 -43}
+pilar{Direccion -50 18 -51}
+pilar{Direccion -50 18 -58}
+pilar{Direccion -50 18 -65}
+
+pilar{Direccion -20 18 -16}
+pilar{Direccion -20 18 -22}
+pilar{Direccion -20 18 -29}
+pilar{Direccion -20 18 -36}
+pilar{Direccion -20 18 -43}
+pilar{Direccion -20 18 -51}
+pilar{Direccion -20 18 -58}
+pilar{Direccion -20 18 -65}
+
+pilar{Direccion 50 18 -16}
+pilar{Direccion 50 18 -22}
+pilar{Direccion 50 18 -29}
+pilar{Direccion 50 18 -36}
+pilar{Direccion 50 18 -43}
+pilar{Direccion 50 18 -51}
+pilar{Direccion 50 18 -58}
+pilar{Direccion 50 18 -65}
+
+pilar{Direccion 20 18 -16}
+pilar{Direccion 20 18 -22}
+pilar{Direccion 20 18 -29}
+pilar{Direccion 20 18 -36}
+pilar{Direccion 20 18 -43}
+pilar{Direccion 20 18 -51}
+pilar{Direccion 20 18 -58}
+pilar{Direccion 20 18 -65}

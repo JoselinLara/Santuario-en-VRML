@@ -1,0 +1,204 @@
+#VRML V2.0 utf8
+SpotLight{
+on TRUE
+	ambientIntensity 0.5
+	color 1 1 1
+	intensity 1
+	 location 20.0 30.0 20.0
+	direction -1 0 0
+	attenuation 1.0 0.0 0.0
+	radius 500.0
+	beamWidth 1.57
+	cutOffAngle 0.78
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 -10 -35
+				children Shape{# torre
+					geometry Cylinder{ 
+							height 60
+							radius 11
+						}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["p3.png"]
+						}textureTransform TextureTransform {
+									scale 3.5 1 }
+					}
+					
+				}
+		}
+	]
+} 
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 37 -35
+				children Shape{# el piso
+					geometry Box{ 
+						size 16 16 16
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["reloj.jpg"]
+						}
+					}
+					
+				}
+		}
+	]
+} 
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 -45 -35
+				children Shape{# el piso
+					geometry Box{ 
+						size 22 20 22
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["cuarto.jpg"]
+						}
+					}
+					
+				}
+		}
+	]
+} 
+PROTO pilar [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Cylinder{ 
+							height 15
+							radius 1.2
+						}
+						appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["pilar1.png"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 45 -35
+				children Shape{# torre
+					geometry Box{ 
+						size 22 1 20
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["r.jpg"]
+						}
+					}
+					
+				}
+		}
+	]
+} 
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 21 -35
+				children Shape{# torre
+					geometry Box{ 
+						size 23 2 23
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["r.jpg"]
+						}
+					}
+					
+				}
+		}
+	]
+} 
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 24 -35
+				children Shape{# torre
+					geometry Box{ 
+						size 15 10 15
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["Imagen2.png"]
+						}
+					}
+					
+				}
+		}
+	]
+} 
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 30 -35
+				children Shape{# torre
+					geometry Box{ 
+						size 22 1 20
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["r.jpg"]
+						}
+					}
+					
+				}
+		}
+	]
+} 
+
+pilar{Direccion -7 37 -27.5}
+pilar{Direccion 7 37 -27.5}
+
+pilar{Direccion -7 37 -43}
+pilar{Direccion 7 37 -43}

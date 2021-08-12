@@ -1,0 +1,337 @@
+#VRML V2.0 utf8
+SpotLight{
+on TRUE
+	ambientIntensity 0.5
+	color 1 1 1
+	intensity 1
+	 location 20.0 30.0 20.0
+	direction -1 0 0
+	attenuation 1.0 0.0 0.0
+	radius 500.0
+	beamWidth 1.57
+	cutOffAngle 0.78
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 0.4 -35
+				children Shape{# el piso
+					geometry Cylinder{ 
+						height 10
+						radius 35
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["marmol.jpg"]
+						}
+					}
+					
+				}
+		}
+	]	
+} 
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 40 -35
+				children Shape{# el piso
+					geometry Cylinder{ 
+						height 10
+						radius 35
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["techo.jpg"]
+						}
+					}
+					
+				}
+		}
+	]	
+} 
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 55 -35
+				children Shape{# el piso
+					geometry Cone{ 
+							height 20
+							bottomRadius 35
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["techo.jpg"]
+						}
+					}
+					
+				}
+		}
+	]	
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 60 -35
+				children Shape{# el piso
+					geometry Cylinder{ 
+						height 6
+						radius 10
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["pilarfondo.jpg"]
+						}textureTransform TextureTransform {
+									scale 6 1 }
+					}
+					
+				}
+		}
+	]	
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 35 -35
+				children Shape{# el piso
+					geometry Cylinder{ 
+						height 4
+						radius 32
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["cuarto.jpg"]
+						}
+					}
+					
+				}
+		}
+	]	
+}
+Transform{
+	translation 0 25 -35
+	children Shape{# el piso
+		geometry Cylinder{ 
+			height 40
+			radius 30
+		}
+		appearance Appearance {
+		
+			material Material{diffuseColor 0 0 0}
+		}
+					
+	}
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 66 -35
+				children Shape{# el piso
+					geometry Cone{ 
+							height 6
+							bottomRadius 10
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["techo.jpg"]
+						}
+					}
+					
+				}
+		}
+	]	
+}
+
+PROTO pilar [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Cylinder{ 
+							height 30
+							radius 2.3
+						}
+						appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["col.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+
+PROTO barda [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Transform{
+		translation IS Direccion
+		children[
+			Shape{
+				appearance Appearance {
+				material Material{
+							ambientIntensity 0.9
+						}
+										texture ImageTexture {
+											url ["escalon.jpg"]
+										}
+									}
+				geometry 
+						IndexedFaceSet{
+							coord Coordinate{
+								point[
+									 0 0 0,#0
+									 2 0 0,#1
+									 2 0 -20,#2 
+									 0 0 -20,#3
+									 2 10 -20,
+									 0 10 -20,
+									 2 10 -10,
+									 0 10 -10
+								]
+						}
+						solid FALSE
+						coordIndex[
+							3,0,1,2,3,-1,
+							5,3,2,4,5,-1,
+							5,7,6,4,5,-1,
+							7,0,1,6,7,-1,
+							4,6,1,2,4,-1,
+							5,7,0,3,5,-1
+						]
+					}
+				
+			}
+		]
+	}
+}
+PROTO escalon [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Box{ 
+							size 30 1.5 20
+						}
+						appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["escalon1.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+
+Transform {
+translation 0 10 -1
+scale 1.8 1.8 1.8
+	children[
+		Billboard{
+			axisOfRotation 0 0 0
+			children Shape{
+				geometry IndexedFaceSet{
+					coord Coordinate{
+						point [ 2 3 0, -2 3 0, -2 -3 0,2 -3 0]
+					}
+					coordIndex[ 0 1 2 3]
+					solid FALSE
+					texCoord TextureCoordinate{
+						point[1 1,0 1,0 0,1 0]
+					}
+				}
+				appearance Appearance{
+				material Material{
+							ambientIntensity 0.9
+						}
+					texture ImageTexture{
+						url "camus.jpg"
+					}
+				}
+			}
+			
+		}
+	]
+}
+Transform {
+translation 0 1 -5
+	children[
+	barda{Direccion -17 -5 20}
+	barda{Direccion 14 -5 20}
+		escalon {Direccion 0 2 -2 }
+		escalon {Direccion 0 1 0 }
+		escalon {Direccion 0 0 2 }#5
+		escalon {Direccion 0 -1 4 }#4
+		escalon {Direccion 0 -4.5 10 }#3 escalon
+		escalon {Direccion 0 -3.5 8 }#2 escalon
+		escalon {Direccion 0 -2 6 }#1 escalon
+	]
+}
+
+pilar{Direccion 10 20 -4}
+pilar{Direccion 19.5 20 -9}
+pilar{Direccion 25 20 -18}
+pilar{Direccion 30 20 -27}
+pilar{Direccion 32 20 -35}
+pilar{Direccion 30 20 -45}
+pilar{Direccion 25 20 -55}
+
+pilar{Direccion 0 20 -65}
+pilar{Direccion 10 20 -65}
+pilar{Direccion 18 20 -60}
+pilar{Direccion -18 20 -60}
+pilar{Direccion -10 20 -60}
+
+pilar{Direccion -10 20 -4}
+pilar{Direccion -19.5 20 -9}
+pilar{Direccion -25 20 -18}
+pilar{Direccion -30 20 -27}
+pilar{Direccion -32 20 -35}
+pilar{Direccion -30 20 -45}
+pilar{Direccion -25 20 -55}

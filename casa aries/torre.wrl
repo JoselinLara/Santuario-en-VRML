@@ -1,0 +1,82 @@
+#VRML V2.0 utf8
+PROTO torre [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Sphere{ 
+							radius 4
+						}
+						appearance Appearance {
+							texture ImageTexture {
+								url ["escalon.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+PROTO cajatorre [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+			children [
+				Transform{
+					translation IS Direccion
+						children Shape{
+							geometry Cylinder{ 
+								height 5
+								radius 4
+							}
+							appearance Appearance {
+								texture ImageTexture {
+									url ["3.jpg"]
+								}
+								textureTransform TextureTransform {
+									scale 4 1 }
+							}
+							
+						}
+				}
+			]
+	}
+}
+PROTO torrepunta [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Cone{ 
+							height 9
+							bottomRadius 2
+						}
+						appearance Appearance {
+							texture ImageTexture {
+								url ["3.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+torrepunta  {Direccion 0 4 0}
+torre		{Direccion 0 1 0}
+cajatorre   {Direccion 0 0 0}

@@ -1,0 +1,353 @@
+#VRML V2.0 utf8
+SpotLight{
+on TRUE
+	ambientIntensity 0.5
+	color 1 1 1
+	intensity 1
+	 location 20.0 30.0 20.0
+	direction -1 0 0
+	attenuation 1.0 0.0 0.0
+	radius 500.0
+	beamWidth 1.57
+	cutOffAngle 0.78
+}
+Collision{
+	collide FALSE
+	children [
+	Transform{
+		translation -65 0 -15
+		scale 1.6 0.4 1.5
+		children Shape{
+				appearance Appearance {
+				material Material{
+							ambientIntensity 0.9
+						}
+					texture ImageTexture {
+						url ["marmol.jpg"]
+					}
+				}
+					geometry IndexedFaceSet{
+						coord Coordinate{
+							point[
+								0 0 0,#0
+								60 0 0,#1
+								0 15 0,#2 
+								60 15 0,#3
+								60 0 -10,#4
+								60 15 -10,#5
+								75 0 -20,#6
+								75 15 -20,#7
+								60 15 -50,#8
+								60 0 -50,#9
+								0 15 -50,#10
+								0 0 -50,#11
+								-17 15 -20,#12
+								-17 0 -20,#13
+								-5 15 -10,#14
+								-5 0 -10#15	 
+							]
+					}
+					solid FALSE
+					coordIndex[
+						2,0,1,3,2,-1,
+						5,3,1,4,5,-1,
+						7,5,4,6,7,-1,
+						8,9,6,7,8,-1,
+						10,11,9,8,10,-1,
+						10,12,13,11,10,-1,
+						12,13,15,14,12,-1,
+						14,15,0,2,14,-1,
+						11,13,15,0,1,4,6,9,11,-1,
+						10,12,14,2,3,5,7,8,10,-1
+								
+					]
+				}		
+			}
+		}
+	]	
+}
+
+Transform{
+translation -30 35 -60
+scale 0.7 1 1 
+children[
+Shape{
+				appearance Appearance {
+				material Material{
+							ambientIntensity 0.9
+						}
+										texture ImageTexture {
+											url ["pilarfondo.jpg"]
+										}textureTransform TextureTransform {
+									scale 1 3 }
+									}
+				geometry 
+						IndexedFaceSet{
+							coord Coordinate{
+								point[
+									 0 0 0,#0
+									 10 0 10,#1
+									 20 0 10,#2 
+									 30 0 0,#3
+									 20 0 -10,#4
+									 10 0 -10,#5
+									 0 5 0,#6
+									 10 5 10,#7
+									 20 5 10,#8
+									 30 5 0,#9
+									 20 5 -10,#10
+									 10 5 -10,#11
+									 15 20 0,#12
+									 
+									 
+								]
+						}
+						solid FALSE
+						coordIndex[
+							0,1,2,3,4,5,0,-1,
+							6,7,8,9,10,11,6,-1,
+							12,7,8,12,-1,
+							12,8,9,12,-1,
+							12,9,10,12,-1,
+							12,11,10,12,-1,
+							12,6,11,12,-1,
+							12,6,7,12,-1,
+							6,0,1,7,6,-1,
+							7,1,2,8,7,-1,
+							8,2,3,9,8,-1,
+							10,4,3,9,10,-1,
+							11,5,4,10,11,-1,
+							11,6,0,5,11,-1
+							
+						]
+					}
+				
+						
+			}
+			]
+			}
+Collision{
+	collide FALSE
+	children [
+	Transform{
+		translation -65 29 -15
+		scale 1.55 0.4 1.5 
+			children[
+				Transform{
+					children[
+						Transform{
+							children Shape{
+								appearance Appearance {
+								material Material{
+							ambientIntensity 0.9
+						}
+									texture ImageTexture {
+										url ["marmol.jpg"]
+									}
+								}
+									geometry IndexedFaceSet{
+										coord Coordinate{
+											point[
+												0 0 0,#0
+												60 0 0,#1
+												0 15 0,#2 
+												60 15 0,#3
+												60 0 -10,#4
+												60 15 -10,#5
+												75 0 -20,#6
+												75 15 -20,#7
+												60 15 -50,#8
+												60 0 -50,#9
+												0 15 -50,#10
+												0 0 -50,#11
+												-17 15 -20,#12
+												-17 0 -20,#13
+												-5 15 -10,#14
+												-5 0 -10#15	 
+											]
+									}
+									solid FALSE
+									coordIndex[
+										#2,0,1,3,2,-1,
+										5,3,1,4,5,-1,
+										7,5,4,6,7,-1,
+										8,9,6,7,8,-1,
+										10,11,9,8,10,-1,
+										10,12,13,11,10,-1,
+										12,13,15,14,12,-1,
+										14,15,0,2,14,-1,
+										11,13,15,0,1,4,6,9,11,-1,
+										10,12,14,2,3,5,7,8,10,-1
+												
+									]
+								}		
+							}
+						}	
+						Transform{
+							children Shape{
+									appearance Appearance {
+									material Material{
+							ambientIntensity 0.9
+						}
+										texture ImageTexture {
+											url ["marmol.jpg"]
+										}
+									}
+									geometry IndexedFaceSet{
+												coord Coordinate{
+													point[
+														0 0 0,#0
+														60 0 0,#1
+														0 15 0,#2 
+														60 15 0,#3
+														
+													]
+											}
+											solid FALSE
+											coordIndex[
+												2,0,1,3,2,-1
+														
+											]
+									}		
+							}
+						}
+					]
+				}
+				
+			]
+		}
+	]	
+}
+PROTO pilar [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Cylinder{ 
+							height 30
+							radius 1.8
+						}
+						appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["columna.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+PROTO escalon [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Box{ 
+							size 26 1.5 20
+						}
+						appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["escalon1.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+
+Transform {
+translation -20 11.3 -21
+scale 1.8 1.8 1.8
+	children[
+		Billboard{
+			axisOfRotation 0 0 0
+			children Shape{
+				geometry IndexedFaceSet{
+					coord Coordinate{
+						point [ 2 3 0, -2 3 0, -2 -3 0,2 -3 0]
+					}
+					coordIndex[ 0 1 2 3]
+					solid FALSE
+					texCoord TextureCoordinate{
+						point[1 1,0 1,0 0,1 0]
+					}
+				}
+				appearance Appearance{
+					texture ImageTexture{
+						url "Dohko.png"
+					}
+				}
+			}
+			
+		}
+	]
+}
+Transform{
+translation -20 3 -20
+	children[
+		escalon {Direccion 0 1 0 }
+		escalon {Direccion 0 0 2 }#5
+		escalon {Direccion 0 -1 4 }#4
+		escalon {Direccion 0 -2 6 }#1 escalon
+		escalon {Direccion 0 -3.5 8 }#		
+		escalon {Direccion 0 -4.5 10 }#
+		escalon {Direccion 0 -5.5 12 }#
+		escalon {Direccion 0 -6.5 15 }#
+	]
+}
+Transform{
+	rotation 0 1 0 0.785398
+	translation -111 0 -23
+	children[
+		pilar{Direccion 40 18 0}
+		pilar{Direccion 40 18 10}
+		pilar{Direccion 40 18 20}
+	]
+}Transform{
+	rotation 0 1 0 -0.785398
+	translation 15 0 -80
+	children[
+		pilar{Direccion 40 18 0}
+		pilar{Direccion 40 18 10}
+		pilar{Direccion 40 18 20}
+	]
+}
+pilar{Direccion 4 17 -20}
+pilar{Direccion 13 17 -20}
+pilar{Direccion 25 17 -20}
+
+pilar{Direccion -65 17 -30}
+pilar{Direccion 25 17 -30} 
+ 
+pilar{Direccion -63 17 -20}
+pilar{Direccion -53 17 -20}
+pilar{Direccion -43 17 -20}
+
+pilar{Direccion 4 17 -85}
+pilar{Direccion 13 17 -85}
+pilar{Direccion 25 17 -85}
+
+pilar{Direccion -63 17 -85}
+pilar{Direccion -53 17 -85}
+pilar{Direccion -43 17 -85}

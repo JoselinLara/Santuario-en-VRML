@@ -1,0 +1,408 @@
+#VRML V2.0 utf8
+SpotLight{
+on TRUE
+	ambientIntensity 0.5
+	color 1 1 1
+	intensity 1
+	 location 0.0 10.0 10.0
+	direction -1 0 -1
+	attenuation 1.0 0.0 0.0
+	radius 500.0
+	beamWidth 1.57
+	cutOffAngle 0.78
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 4 -15	
+				children Shape{# el piso
+					geometry Box{ 
+						size 100 5 60
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["marmol.jpg"]
+						}
+					}
+					
+				}
+		}
+	]
+} 
+Transform{
+	translation 0 10 0
+	children[
+		Collision{
+			collide FALSE
+			children [
+				Transform{
+					translation 0 50 -15	
+						children Shape{# el piso
+							geometry Box{ 
+								size 105 5 60
+							}
+							appearance Appearance {
+							material Material{
+							ambientIntensity 0.9
+						}
+								texture ImageTexture {
+									url ["marmol.jpg"]
+								}
+							}
+							
+						}
+				}
+			]
+		}
+		Collision{
+			collide FALSE
+			children [
+				Transform{
+					translation 0 53 -15	
+						children Shape{# el piso
+							geometry Box{ 
+								size 106 1 63
+							}
+							appearance Appearance {
+							material Material{
+							ambientIntensity 0.9
+						}
+								texture ImageTexture {
+									url ["piso.jpg"]
+								}
+							}
+							
+						}
+				}
+			]
+		}
+		Collision{
+			collide FALSE
+			children [
+				Transform{
+					translation 0 47 -15	
+						children Shape{# el piso
+							geometry Box{ 
+								size 106 1 63
+							}
+							appearance Appearance {
+							material Material{
+							ambientIntensity 0.9
+						}
+								texture ImageTexture {
+									url ["piso.jpg"]
+								}
+							}
+							
+						}
+				}
+			]
+		}
+	]
+ 
+}
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation 0 30 -15	
+				children Shape{# el piso
+					geometry Box{ 
+						size 100 5 60
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["marmol.jpg"]
+						}
+					}
+					
+				}
+		}
+	]
+}
+
+PROTO pilar [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Cylinder{ 
+							height 25
+							radius 1.5
+						}
+						appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["col.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+PROTO p1[
+	field SFVec3f Direccion 0 0 0
+]
+{
+Collision{
+	collide FALSE
+	children [
+		Transform{
+			translation IS Direccion
+			
+				children Shape{# el piso
+					geometry Box{ 
+						size 35 5 10
+					}
+					appearance Appearance {
+					material Material{
+							ambientIntensity 0.9
+						}
+						texture ImageTexture {
+							url ["marmol.jpg"]
+						}
+					}
+					
+				}
+		}
+	]
+}
+}
+PROTO escalon [
+	field SFVec3f Direccion 0 0 0
+]
+{
+	Collision{
+		collide FALSE
+		children [
+			Transform{
+				translation IS Direccion
+					children Shape{
+						geometry Box{ 
+							size 26 1.5 20
+						}
+						appearance Appearance {
+						material Material{
+							ambientIntensity 0.9
+						}
+							texture ImageTexture {
+								url ["escalon.jpg"]
+							}
+						}
+						
+					}
+			}
+		]
+		
+	}
+}
+Transform {
+translation 0 66 18
+scale 3 2 1.8
+	children[
+		Billboard{
+			axisOfRotation 0 0 0
+			children Shape{
+				geometry IndexedFaceSet{
+					coord Coordinate{
+						point [ 2 3 0, -2 3 0, -2 -3 0,2 -3 0]
+					}
+					coordIndex[ 0 1 2 3]
+					solid FALSE
+					texCoord TextureCoordinate{
+						point[1 1,0 1,0 0,1 0]
+					}
+				}
+				appearance Appearance{
+				material Material{
+							ambientIntensity 0.9
+						}
+					texture ImageTexture{
+						url "emblema.png"
+					}
+				}
+			}
+			
+		}
+	]
+}
+Transform{
+	translation 0 17 -15
+	children Shape{
+		geometry Box{ 
+			size 90 20 52
+		}
+		appearance Appearance {
+			material Material {diffuseColor 0 0 0}
+		}				
+	}
+}
+Transform{
+	translation 0 44 -15
+	children Shape{
+		geometry Box{ 
+			size 90 30 52
+		}
+		appearance Appearance {
+			material Material {diffuseColor 0 0 0}
+		}				
+	}
+}
+
+Transform {
+translation 0 12 14
+	children[
+		Billboard{
+			axisOfRotation 0 0 0
+			children Shape{
+				geometry IndexedFaceSet{
+					coord Coordinate{
+						point [ 5 7 0, -5 7 0, -5 -7 0,5 -7 0]
+					}
+					coordIndex[ 0 1 2 3]
+					solid FALSE
+					texCoord TextureCoordinate{
+						point[1 1,0 1,0 0,1 0]
+					}
+				}
+				appearance Appearance{
+					texture ImageTexture{
+						url"arles.png"
+					}
+				}
+			}
+			
+		}
+	]
+}
+Transform{
+translation 0 3 21
+	children[
+		escalon {Direccion 0 2 -2 }
+		escalon {Direccion 0 1 0 }
+		escalon {Direccion 0 0 2 }#5
+		escalon {Direccion 0 -1 4 }#4
+		escalon {Direccion 0 -2 6 }# 
+		escalon {Direccion 0 -3.5 8 }#		
+		escalon {Direccion 0 -4.5 10 }#
+		escalon {Direccion 0 -5.5 12 }#
+		escalon {Direccion 0 -6.5 15 }#
+		escalon {Direccion 0 -7.5 18 }#
+		escalon {Direccion 0 -8.5 20 }#
+		escalon {Direccion 0 -9.5 22 }#
+	]
+}
+p1{Direccion 0 30 20}
+p1{Direccion 0 5 20}
+pilar{Direccion -46 17 12}
+pilar{Direccion -46 17 6}
+pilar{Direccion -46 17 0}
+pilar{Direccion -46 17 -6}
+pilar{Direccion -46 17 -12}
+pilar{Direccion -46 17 -18}
+pilar{Direccion -46 17 -24}
+pilar{Direccion -46 17 -30}
+pilar{Direccion -46 17 -36}
+pilar{Direccion -36 17 12}
+pilar{Direccion -26 17 12}
+pilar{Direccion -16 17 12}
+
+
+pilar{Direccion 46 17 12}
+pilar{Direccion 46 17 6}
+pilar{Direccion 46 17 0}
+pilar{Direccion 46 17 -6}
+pilar{Direccion 46 17 -12}
+pilar{Direccion 46 17 -18}
+pilar{Direccion 46 17 -24}
+pilar{Direccion 46 17 -30}
+pilar{Direccion 46 17 -36}
+pilar{Direccion 36 17 12}
+pilar{Direccion 26 17 12}
+pilar{Direccion 16 17 12}
+
+pilar{Direccion 16 17 22}
+pilar{Direccion -16 17 22}
+
+
+Transform{
+	translation 0 0 -53
+	children[
+		pilar{Direccion -46 17 12}
+		pilar{Direccion -36 17 12}
+		pilar{Direccion -26 17 12}
+		pilar{Direccion -16 17 12}
+		pilar{Direccion -6 17 12}
+
+		pilar{Direccion 46 17 12}
+		pilar{Direccion 36 17 12}
+		pilar{Direccion 26 17 12}
+		pilar{Direccion 16 17 12}
+		pilar{Direccion 6 17 12}
+	]
+}
+Transform{
+	translation 0 27 -53
+	children[
+		pilar{Direccion -46 17 12}
+		pilar{Direccion -36 17 12}
+		pilar{Direccion -26 17 12}
+		pilar{Direccion -16 17 12}
+		pilar{Direccion -6 17 12}
+
+		pilar{Direccion 46 17 12}
+		pilar{Direccion 36 17 12}
+		pilar{Direccion 26 17 12}
+		pilar{Direccion 16 17 12}
+		pilar{Direccion 6 17 12}
+	]
+}
+Transform{
+	translation 0 27 0
+	children[
+		pilar{Direccion -46 17 12}
+		pilar{Direccion -46 17 6}
+		pilar{Direccion -46 17 0}
+		pilar{Direccion -46 17 -6}
+		pilar{Direccion -46 17 -12}
+		pilar{Direccion -46 17 -18}
+		pilar{Direccion -46 17 -24}
+		pilar{Direccion -46 17 -30}
+		pilar{Direccion -46 17 -36}
+		pilar{Direccion -36 17 12}
+		pilar{Direccion -26 17 12}
+		pilar{Direccion -16 17 12}
+		pilar{Direccion -6 17 12}
+
+		pilar{Direccion 46 17 12}
+		pilar{Direccion 46 17 6}
+		pilar{Direccion 46 17 0}
+		pilar{Direccion 46 17 -6}
+		pilar{Direccion 46 17 -12}
+		pilar{Direccion 46 17 -18}
+		pilar{Direccion 46 17 -24}
+		pilar{Direccion 46 17 -30}
+		pilar{Direccion 46 17 -36}
+		pilar{Direccion 36 17 12}
+		pilar{Direccion 26 17 12}
+		pilar{Direccion 16 17 12}
+		pilar{Direccion 6 17 12}
+	]
+}
